@@ -1,6 +1,4 @@
 "use strict";
-const sql = require("mssql");
-const config = require("./Config/config.js").config;
 
 var numOperacion = process.argv[2];
 

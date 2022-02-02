@@ -23,9 +23,7 @@ async function INSERT_CCM_PETICION(numOperacion) {
   let descError = null;
 
   let pool = await sql.connect(config);
-  //await console.log("Starting the insertion to table CCM_Peticion");
   try {
-    // make sure that any items are correctly URL encoded in the connection string
     let result = await pool.request().query(
       "INSERT INTO CCM_PETICION(NOM_FASE, NUM_OPERACION, USU_CREACION, FEC_CREACION, USU_MODIF, FEC_MODIF, IND_ERROR, DESC_ERROR) VALUES" +
         "('" +
@@ -48,8 +46,6 @@ async function INSERT_CCM_PETICION(numOperacion) {
     );
     console.log("Data inserted: " + result.rowsAffected);
 
-    //console.log("Rows Affected: " + result.rowsAffected);
-   // await console.log("Data inserted");
    sql.close();
    return result;
   } catch (err) {
@@ -58,7 +54,4 @@ async function INSERT_CCM_PETICION(numOperacion) {
   }
 }
 
-/*async function Query(numOperacion){
-  await INSERT_CCM_PETICION(numOperacion)
-}*/
 module.exports = { INSERT_CCM_PETICION };
